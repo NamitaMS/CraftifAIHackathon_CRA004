@@ -14,11 +14,17 @@ st.markdown("""
 .alert-crit {background-color: #3b0d0d; border-left: 6px solid #ff4b4b; padding: 14px; border-radius: 6px; color: #ffcccc; font-weight: bold; font-size: 16px;}
 .alert-warn {background-color: #3b2e0d; border-left: 6px solid #ffbb00; padding: 14px; border-radius: 6px; color: #ffeebb; font-weight: bold; font-size: 16px;}
 .alert-safe {background-color: #0d3b1e; border-left: 6px solid #00cc66; padding: 14px; border-radius: 6px; color: #ccffdd; font-weight: bold; font-size: 16px;}
+.team-card {background-color: #1e1e2f; padding: 12px; border-radius: 8px; border: 1px solid #4a4ae2; margin-bottom: 20px;}
 </style>
 """, unsafe_allow_html=True)
 
 st.title("🛡️ AegisVision: CraftifAI PipeGen Physical AI Safety Sentinel")
-st.caption("Participant ID: CRA004 | Team: sync4ce | Track A (PipeGen v0.5.1) + Edge Optimization Bonus (TensorRT INT8 DeepStream)")
+st.markdown("""
+<div class="team-card">
+<b>Team Name:</b> sync4ce &nbsp;|&nbsp; <b>Participant ID:</b> CRA004 &nbsp;|&nbsp; <b>Members:</b> Naguru Kethan Kumar Reddy, Kuntimaddi Joshika, M Chinmayi<br>
+<b>Track:</b> CraftifAI PipeGen v0.5.1 (Track A) + Edge Optimization TensorRT INT8 Bonus &nbsp;|&nbsp; <b>Institution:</b> PES University, Bengaluru
+</div>
+""", unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("TensorRT Engine Precision", "INT8 Quantized", "3.29x Speedup vs FP32")
@@ -74,6 +80,7 @@ with left_col:
     st.json({
         "pipegen_version": "0.5.1",
         "participant_id": "CRA004",
+        "team_name": "sync4ce",
         "pipeline_stage": "Stage5_LiveRun_ActionSink",
         "primary_engine": "yolov8n_person_b1_gpu0_int8.engine",
         "secondary_engine": "yolov8n_pose_b1_gpu0_int8.engine",
