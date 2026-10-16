@@ -8,7 +8,7 @@
 
 ## 👥 Meet Team sync4ce
 
-* **Naguru Kethan (Team Lead & Full-Stack AI Builder)**
+* **Naguru Kethan Kumar Reddy(Team Lead & Full-Stack AI Builder)**
   * **Bio:** Full-Stack AI & Computer Vision Builder @ PES University | Data Analyst @ Nexus AWS Club | 2nd Runner-Up @ SustainX Hackathon. Shipped 6+ end-to-end production systems spanning Microsoft Azure AI (Speech/Translator), Contactless rPPG Biosensing (OpenCV/PCA), Enterprise Agentic AI, and Geospatial Civic Platforms.
   * **Tech Stack:** Python, Microsoft Azure, AWS, OpenCV, Agentic AI, FastAPI, React, JavaScript, Streamlit, C, Folium, Computer Vision, Machine Learning, Cloudflare, Git, Linux.
 * **Joshika Kuntimaddi (Frontend & Computer Vision Lead)**
