@@ -95,3 +95,6 @@ flowchart LR
     G --> H2[JSON Metadata Log]
     G --> H3[MQTT Alert Broker]
     H3 --> I[Streamlit Command Center]
+
+## 4. sample prototype dashboard:
+https://aegisvisions.pages.dev/
