@@ -95,14 +95,3 @@ flowchart LR
     G --> H2[JSON Metadata Log]
     G --> H3[MQTT Alert Broker]
     H3 --> I[Streamlit Command Center]
-## 4. Evidence 2: PipeGen Stage 4 — TensorRT Speed, Power & Accuracy Report (Edge Optimization Bonus)
-
-Compiled and benchmarked using PipeGen v0.5.1's built-in TensorRT profiler:
-
-| Precision Mode | Engine File | Inference Latency (ms/frame) | DeepStream Throughput (FPS) | GPU Power Draw (W) | Accuracy (mAP@50) |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **FP32 (Baseline)** | `yolov8n_pose_fp32.engine` | 11.2 ms | 89.2 FPS | 42.0 W | 94.2% |
-| **FP16 (Half)** | `yolov8n_pose_fp16.engine` | 6.1 ms | 163.9 FPS | 31.5 W | 94.1% (-0.1%) |
-| **INT8 (Quantized - Active)** | `yolov8n_pose_int8.engine` | **3.4 ms** | **294.1 FPS** | **21.8 W** | **93.6% (-0.6%)** |
-
-* **Trade-Off Analysis:** Quantizing to **TensorRT INT8** delivers a **3.29x speedup** (69.6% latency reduction) and cuts GPU power consumption by **48.1%** with only a **0.6% mAP trade-off**, enabling deterministic real-time execution on power-constrained edge hardware.
