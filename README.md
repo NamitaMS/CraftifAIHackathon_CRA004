@@ -85,17 +85,16 @@ When a hazard breach or >2.0s fall occurs, PipeGen publishes a structured JSON p
 
 ```mermaid
 flowchart LR
-    A["🎥 Input Video / USB Cam<br/>/home/kethan_07/aegis_videos<br/>(nvurisrcbin)"] --> B["⚙️ Preprocess & Mux<br/>1920x1080 FP16/INT8<br/>(nvstreammux)"]
-    B --> C["🧠 Primary Detector (PGIE)<br/>YOLOv8n-Person<br/>TensorRT INT8 Engine"]
-    C --> D["🎯 Multi-Object Tracker<br/>NvDCF Persistent ID<br/>(nvtracker)"]
-    D --> E["🦴 Secondary Pose (SGIE)<br/>YOLOv8n-Pose 17-Keypoint<br/>TensorRT INT8 Engine"]
-    E --> F["📐 Spatial-Temporal Rules<br/>Polygon ROI & Fall >2.0s<br/>(nvdsanalytics)"]
-    F --> G["🛡️ Privacy Redaction & HUD<br/>On-Device Face Blur<br/>(nvdsosd)"]
-    G --> H1["🖥️ Live OSD & Saved Video"]
-    G --> H2["📄 JSON Telemetry Log<br/>metadata.json"]
-    G --> H3["📡 MQTT Broker :1883<br/>Topic: aegis/safety/alerts"]
-    H3 --> I["🚨 AegisVision Streamlit<br/>Command Center & Relay Trip"]
-
+    A[Input Video Source] --> B[Preprocess and Mux]
+    B --> C[Primary Detector PGIE YOLOv8n]
+    C --> D[Multi-Object Tracker NvDCF]
+    D --> E[Secondary Pose SGIE YOLOv8n]
+    E --> F [Spatial Temporal Analytics]
+    F --> G [Privacy Redaction OSD]
+    G --> H1[Live OSD Display]
+    G --> H2[JSON Metadata Log]
+    G --> H3[MQTT Alert Broker]
+    H3 --> I[Streamlit Command Center]
 ## 4. Evidence 2: PipeGen Stage 4 — TensorRT Speed, Power & Accuracy Report (Edge Optimization Bonus)
 
 Compiled and benchmarked using PipeGen v0.5.1's built-in TensorRT profiler:
