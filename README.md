@@ -1,6 +1,6 @@
 # AegisVision: Physical AI Industrial Safety, Fall Posture & Privacy-Preserving Edge Sentinel
 
-🌐 **Live HTML Dashboard (Cloudflare Pages):** [https://aegisvision.pages.dev](https://aegisvision.pages.dev)  
+🌐 **Live HTML Dashboard (Cloudflare Pages):** [[https://aegisvision.pages.dev](https://aegisvisions.pages.dev/)](https://aegisvision.pages.dev)  
 
 **Event:** CraftifAI Physical AI Buildathon — HackWithBangalore 4.0  
 **Track:** Track A — CraftifAI PipeGen (v0.5.1) — Perception  
