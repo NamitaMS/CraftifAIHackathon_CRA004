@@ -26,7 +26,9 @@ st.warning(
 )
 st.markdown("""
 <div class="team-card">
-<b>Team Name:</b> sync4ce &nbsp;|&nbsp; <b>Participant ID:</b> CRA004 &nbsp;|&nbsp; <b>Members:</b> Naguru Kethan Kumar Reddy, Kuntimaddi Joshika, M Chinmayi<br>
+
+<b>Team Name:</b> sync4ce &nbsp;|&nbsp; <b>Participant ID:</b> CRA004 &nbsp;|&nbsp; <b>Members:</b> Namita Maruti Sherakhane, Naguru Kethan Kumar Reddy, Kuntimaddi Joshika, Manya Agarwal<br>
+
 <b>Track:</b> CraftifAI PipeGen v0.5.1 (Track A) + Edge Optimization TensorRT INT8 Bonus &nbsp;|&nbsp; <b>Institution:</b> PES University, Bengaluru
 </div>
 """, unsafe_allow_html=True)
