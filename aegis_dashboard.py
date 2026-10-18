@@ -20,6 +20,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🛡️ AegisVision: CraftifAI PipeGen Physical AI Safety Sentinel")
+st.warning(
+    "DEMO MODE — Scenario events and MQTT payloads shown below are simulated. "
+    "No live camera inference or machinery-control command is active."
+)
 st.markdown("""
 <div class="team-card">
 <b>Team Name:</b> sync4ce &nbsp;|&nbsp; <b>Participant ID:</b> CRA004 &nbsp;|&nbsp; <b>Members:</b> Naguru Kethan Kumar Reddy, Kuntimaddi Joshika, M Chinmayi<br>
