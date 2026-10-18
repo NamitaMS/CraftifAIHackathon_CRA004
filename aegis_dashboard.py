@@ -73,13 +73,13 @@ with left_col:
     if "Scenario 3" in scenario:
         active_inc = incidents[2]
         st.markdown(
-            f"<div class='alert-crit'>🚨 CRITICAL PHYSICAL AI ACTION TRIGGERED: {active_inc['Track_ID']} — {active_inc['Posture']} in {active_inc['Zone']} → Dispatched: {active_inc['Action_Dispatched']}</div>",
+            f"<div class='alert-crit'>🚨 SIMULATED CRITICAL EVENT: {active_inc['Track_ID']} — {active_inc['Posture']} in {active_inc['Zone']} → Dispatched: {active_inc['Action_Dispatched']}</div>",
             unsafe_allow_html=True
         )
     elif "Scenario 2" in scenario:
         active_inc = incidents[1]
         st.markdown(
-            f"<div class='alert-warn'>⚠️ HAZARD ZONE INTRUSION DETECTED: {active_inc['Track_ID']} entered {active_inc['Zone']} → Dispatched: {active_inc['Action_Dispatched']}</div>",
+            f"<div class='alert-warn'>⚠️ SIMULATED HAZARD ZONE INTRUSION: {active_inc['Track_ID']} entered {active_inc['Zone']} → Dispatched: {active_inc['Action_Dispatched']}</div>",
             unsafe_allow_html=True
         )
     else:
