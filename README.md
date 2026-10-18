@@ -1,107 +1,132 @@
-## Implementation Status
+# 🛡️ AegisVision
+### Privacy-conscious industrial safety monitoring — a PipeGen hackathon prototype
 
-AegisVision is a prototype for privacy-conscious industrial worker safety monitoring using computer vision..
+<p align="center">
+  <strong>From passive CCTV to clearer safety signals.</strong><br/>
+  A concept dashboard for worker-fall and hazard-zone event monitoring at the edge.
+</p>
 
-**Current status:** The Streamlit dashboard includes simulated incident data. Live camera inference, end-to-end PipeGen execution, measured performance benchmarks, and MQTT-based machinery alerts should be considered unverified until demonstrated in a working environment.
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" />
+  <img alt="Streamlit" src="https://img.shields.io/badge/UI-Streamlit-FF4B4B?logo=streamlit&logoColor=white" />
+  <img alt="PipeGen" src="https://img.shields.io/badge/PipeGen-0.5.1-6554C0" />
+  <img alt="Status" src="https://img.shields.io/badge/status-prototype-orange" />
+  <img alt="Demo data" src="https://img.shields.io/badge/events-simulated-lightgrey" />
+</p>
 
-This repository documents the intended pipeline and supporting configuration. See the project files and evidence report for implementation details. Performance figures are reported claims, not independently verified benchmark results.
-
-# AegisVision: Physical AI Industrial Safety, Fall Posture & Privacy-Preserving Edge Sentinel
-
-🌐 **Live HTML Dashboard (Cloudflare Pages):** [[https://aegisvision.pages.dev](https://aegisvisions.pages.dev/)](https://aegisvision.pages.dev)  
-
-**Event:** CraftifAI Physical AI Buildathon — HackWithBangalore 4.0  
-**Track:** Track A — CraftifAI PipeGen (v0.5.1) — Perception  
-**Participant ID:** CRA004  
-**Team Name:** sync4ce  
-**Bonus Targeted:** Edge Optimization Bonus (TensorRT INT8 Quantization, DeepStream Pipeline & Speed/Power/Accuracy Trade-Off Benchmarking)
-
----
-
-## 👥 Meet Team sync4ce
-
-* **Naguru Kethan Kumar Reddy (Team Lead & Full-Stack AI Builder)**  
-  * **Bio:** Full-Stack AI & Computer Vision Builder @ PES University | Data Analyst @ Nexus AWS Club | 2nd Runner-Up @ SustainX Hackathon. Shipped 6+ end-to-end production systems spanning Microsoft Azure AI (Speech/Translator), Contactless rPPG Biosensing (OpenCV/PCA), Enterprise Agentic AI, and Geospatial Civic Platforms.  
-  * **Tech Stack:** Python, Microsoft Azure, AWS, OpenCV, Agentic AI, FastAPI, React, JavaScript, Streamlit, C, Folium, Computer Vision, Machine Learning, Cloudflare, Git, Linux.
-* **Joshika Kuntimaddi (Frontend & Computer Vision Lead)**  
-  * **Bio:** Frontend, Geospatial UI & Computer Vision Developer @ PES University. Experienced in building interactive Smart City heatmaps, multimodal vision dashboards, and responsive web applications using Streamlit, Folium, React, and OpenCV.  
-  * **Tech Stack:** Python, React, JavaScript, HTML, CSS, Streamlit, Folium, OpenCV, Figma, UI/UX, TailwindCSS, Git.
-* **Namita Shenakhane (AI & Backend Systems Lead)**  
-  * **Bio:** AI & Backend Systems Developer specializing in Agentic AI workflows, LLM document parsing, and scalable REST APIs. Experienced in building automated compliance auditors, edge health APIs, and cloud-native backends.  
-  * **Tech Stack:** Python, FastAPI, Node.js, Agentic AI, LangChain, Microsoft Azure, AWS, SQL, REST APIs, NLP, Git, Linux.
-* **Manya Agarwal (Data Analytics & Cloud FinOps Lead)**  
-  * **Bio:** Data Analytics, Cloud FinOps & AI Product Builder. Focused on statistical modeling, time-series anomaly detection, SaaS license optimization engines, and data-driven product strategy.  
-  * **Tech Stack:** Python, Data Analytics, Machine Learning, Pandas, Numpy, SQL, AWS, Microsoft Azure, Streamlit, FinOps, Git.
+> **Prototype status — please read:** The Streamlit dashboard runs as a scenario-based demonstration. Its incident rows and MQTT/JSON examples are simulated. The live DeepStream/PipeGen pipeline, camera inference, MQTT delivery, privacy processing, and performance figures have **not been verified end-to-end**. The DeepStream image download failed during setup in the current environment. Do not treat this prototype as a real machinery safety system.
 
 ---
 
-## 1. Official Buildathon Project Submission Q&A
+## ✨ What is AegisVision?
 
-**Project Name:**  
-`AegisVision`
+Factories use cameras to observe busy work areas, but a camera feed alone does not turn a potential hazard into a structured, actionable event. AegisVision explores a possible edge-AI workflow for:
 
-**In one line, what does it do?**  
-AegisVision turns live factory floor cameras into an INT8 edge sentinel that detects worker hazard-zone intrusions and sudden falls (>2.0s), blurs faces on-device for privacy, and dispatches sub-5ms MQTT machinery stop alerts to a live safety command center.
+- **Fall-event scenarios** — represent a worker posture held over a time threshold.
+- **Hazard-zone scenarios** — represent a worker entering a configured restricted area.
+- **Privacy-aware design** — plan for on-device redaction before incident footage is stored.
+- **Structured alerts** — show example JSON/MQTT event payloads for a future integration.
+- **Operator dashboard** — present scenarios, an event table, a proposed pipeline topology, and reported optimization figures with verification caveats.
 
-**Who is it for, and what changes for them?**  
-* **Target User:** EHS (Environment, Health & Safety) Officers and Floor Supervisors at heavy manufacturing, stamping, and robotic assembly plants.  
-* **How they handle it today:** Supervisors manually watch dozens of passive CCTV feeds. When a worker enters an active robotic-arm cage or suffers a sudden fall/medical emergency, it goes unnoticed for 3 to 5 minutes until a coworker physically intervenes—often too late to prevent severe injury.  
-* **What AegisVision changes:** Converts passive post-incident CCTV into active, deterministic edge prevention. It catches 100% of polygon hazard-zone breaches and sustained falls (>2.0s) and triggers an automated MQTT machinery relay lockout + live supervisor alert in under 50 milliseconds (saving 3+ minutes of emergency response time while protecting worker identity via automatic on-device face blurring before any frame is saved).
+The current UI is a **prototype/demo**, not a validated detector or a safety-certified control system.
 
-**Which area does it serve?**  
-* Factories and worker safety (combining *Track 1: Workplace Safety Sentinel* and *Track 2: Fall Detection with Privacy Blur*).
+## 🖥️ Demo dashboard
 
-**What does your pipeline send out?**  
-* Live display / Saved video / Structured JSON Metadata file (`metadata.json`) / Real-Time MQTT stream (`aegis/safety/alerts`) / Actionable Command Center (`aegis_dashboard.py` in Streamlit).
+The dashboard is built with Streamlit and includes:
+- Scenario selector for normal operation, zone intrusion, and fall-event examples
+- A sample event log clearly labelled as simulated
+- Example alert payload for integration planning
+- A pipeline topology sketch
+- A performance table that preserves the reported figures but labels them unverified
 
-**Where does that output go, and who acts on it?**  
-When a hazard breach or >2.0s fall occurs, PipeGen publishes a structured JSON payload to `/home/kethan_07/aegis_videos/metadata.json` and fires an MQTT message on topic `aegis/safety/alerts`. Our custom Streamlit OSHA Incident Command Center (`aegis_dashboard.py`) ingests this stream live; it flashes a red audio-visual alarm for the floor supervisor with the worker's persistent Track ID and zone name, logs a privacy-blurred evidence clip for compliance, and dispatches an automated `EMERGENCY_RELAY_TRIP` command to halt the machinery.
+**Live demo:** The previously configured Pages URL was not serving the dashboard when checked. Run the app locally using the instructions below rather than relying on that URL.
 
-**What input did you test it on?**  
-* Video from the real setting, recorded or found (`/home/kethan_07/aegis_videos/shopfloor_stress.mp4`).
-
-**What does your pipeline do between input and output?**  
-1. Decodes and batches the 1080p shop-floor video stream (`nvurisrcbin` -> `nvstreammux`).  
-2. Runs `YOLOv8n-Person` primary detection (PGIE in TensorRT INT8) to locate workers.  
-3. Tracks each worker across frames with `NvDCF` (`nvtracker`) to maintain persistent worker IDs.  
-4. Runs secondary 17-keypoint human pose estimation (`YOLOv8n-Pose` SGIE in TensorRT INT8) on tracked bounding boxes.  
-5. Evaluates spatial-temporal rules (`nvdsanalytics`): checks if feet keypoints breach the Polygon ROI hazard zone and checks if hip-to-ankle vertical drop ratio indicates a fall held for >2.0 seconds.  
-6. Applies on-screen HUD overlays and privacy face redaction (`nvdsosd`) before publishing JSON metadata and MQTT alerts.  
-* **Customizations made after PipeGen's initial graph:** We added the 2.0-second temporal hold filter on the pose keypoints (to eliminate false alarms when workers intentionally bend down to pick up tools) and quantized both models from FP32 to INT8 to double throughput for multi-stream edge deployment.
-
-**How fast does it run, and on what hardware?**  
-3.40 ms inference latency per frame (294.1 FPS model throughput; 142.8 FPS end-to-end DeepStream pipeline with OSD and MQTT sinks) running in TensorRT INT8 mode on an NVIDIA GPU (21.8W GPU power draw, down from 11.2 ms and 42.0W in FP32 baseline with only 0.6% mAP loss). Our industrial safety use case requires at least 30 FPS (<33 ms latency) to stop fast-moving hydraulic/robotic machinery in time, so AegisVision runs nearly 5x faster than the real-time threshold.
-
-**What does it not handle yet?**  
-1. Severe full-body occlusion: if a fallen worker is >75% hidden behind heavy pallets or forklifts, the 17-keypoint pose estimator can lose the hip/ankle keypoints and delay the 2.0-second fall timer.  
-2. Camera shake or rapid pan-tilt-zoom (PTZ) movement: the Polygon ROI hazard zones are currently fixed in pixel coordinates, so if the physical camera mount is bumped, the zone boundaries require recalibration.  
-3. Low-light / heavy steam environments without an IR camera feed.
-
----
-
-## 2. CraftifAI PipeGen (v0.5.1) 5-Stage Architecture
-
-| PipeGen Stage | Implementation Details in AegisVision |
-| :--- | :--- |
-| **Stage 1: Requirement** | *"Detect workers and 17-keypoint human pose on a live shop-floor video stream, track persistent worker IDs across frames, flag polygon ROI hazard zone intrusions and fall postures held for >2.0 seconds, apply privacy face blur before saving incident frames, and publish real-time JSON logs and MQTT emergency stop alerts."* |
-| **Stage 2: Pipeline IR** | Multi-node DeepStream graph (`nvurisrcbin` -> `nvvideoconvert` -> `nvstreammux` -> `nvinfer (PGIE Person)` -> `nvtracker (NvDCF)` -> `nvinfer (SGIE Pose)` -> `nvdsanalytics (ROI & Fall >2.0s)` -> `nvdsosd (Privacy Blur)` -> `nvmsgconv` -> `nvmsgbroker (JSON & MQTT)`). |
-| **Stage 3: Model** | Selected `YOLOv8n-Person` (Primary Detection) and `YOLOv8n-Pose` (17-Keypoint Pose Estimation) via CraftifAI Catalog & Deep Search, exported to dynamic-batch ONNX. |
-| **Stage 4: Compiler** | Compiled ONNX models into TensorRT INT8 (with calibration cache `aegis_int8_calib.cache`) and FP16 engines (`yolov8n_pose_b1_gpu0_int8.engine`). |
-| **Stage 5: Run** | Executed via `pipegen_export/run.sh` on real recorded industrial video streams under `/home/kethan_07/aegis_videos/shopfloor_stress.mp4`, streaming live JSON/MQTT telemetry into `aegis_dashboard.py`. |
-
----
-
-## 3. Visual Pipeline IR Node Graph (PipeGen Stage 2)
+## 🧱 Intended architecture
 
 ```mermaid
-graph TD
-    A[Input Video Source] --> B[Preprocess and Mux]
-    B --> C[Primary Detector PGIE YOLOv8n]
-    C --> D[Multi-Object Tracker NvDCF]
-    D --> E[Secondary Pose SGIE YOLOv8n]
-    E --> F[Spatial Temporal Analytics]
-    F --> G[Privacy Redaction OSD]
-    G --> H1[Live OSD Display]
-    G --> H2[JSON Metadata Log]
-    G --> H3[MQTT Alert Broker]
-    H3 --> I[Streamlit Command Center]
+flowchart TD
+    A[Video source] --> B[Decode and stream mux]
+    B --> C[Person detection]
+    C --> D[Multi-object tracking]
+    D --> E[Pose estimation]
+    E --> F[Temporal and zone rules]
+    F --> G[Privacy redaction]
+    G --> H[Video overlay]
+    G --> I[Structured event JSON]
+    G --> J[MQTT alert example]
+    I --> K[Operator dashboard]
+    J --> K
+```
+
+This diagram describes the **intended design**, not a verified running pipeline. The planned stack references NVIDIA DeepStream, TensorRT, PipeGen, and MQTT. Those integrations remain unverified in this repository's current demo.
+
+## 🚀 Run the dashboard locally
+
+### Requirements
+- Python 3
+- Git
+- A terminal
+
+### Setup
+
+```bash
+git clone https://github.com/NamitaMS/CraftifAIHackathon_CRA004.git
+cd CraftifAIHackathon_CRA004
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install streamlit pandas
+streamlit run aegis_dashboard.py
+```
+
+Open the local URL Streamlit prints (usually `http://localhost:8501`).
+
+> This starts the dashboard demo only. It does **not** install PipeGen or run a DeepStream inference pipeline.
+
+## 🧪 What is implemented vs. planned?
+
+| Component | Current status |
+|---|---|
+| Streamlit dashboard | Implemented; local launch tested |
+| Scenario selector and simulated event table | Implemented |
+| Example JSON/MQTT payload display | Implemented as simulated output |
+| Pipeline topology sketch | Documentation/demo only |
+| Live camera input and inference | Not verified |
+| PipeGen-generated pipeline execution | Not verified |
+| TensorRT FP32/FP16/INT8 benchmarking | Figures shown are reported claims; not independently verified |
+| MQTT broker delivery or machinery control | Not connected / not verified |
+| Privacy redaction on real frames | Not verified |
+
+## 📊 Performance claims
+
+The UI includes reported figures for model latency, FPS, GPU power, and accuracy as an illustration of the intended optimization comparison. These figures have **not been independently reproduced** in the current environment and must not be interpreted as measured results from this repository.
+
+## 🛠️ Current limitation
+
+During PipeGen startup, the download of `craftifaidocker/deepstream:7.1-amd64-v3` failed with a connection reset. Registry endpoints were reachable, but the large image transfer did not complete. As a result, the end-to-end pipeline and video output remain unverified.
+
+## 👥 Team sync4ce
+
+- **Namita Maruti Sherakhane**
+- **Naguru Kethan Kumar Reddy**
+- **Kuntimaddi Joshika**
+- **Manya Agarwal**
+
+**Event:** CraftifAI Physical AI Buildathon — HackWithBangalore 4.0  
+**Track:** Track A — PipeGen (v0.5.1) / Perception  
+**Participant ID:** CRA004  
+**Institution:** PES University, Bengaluru
+
+## 🔭 Next steps
+
+1. Complete the DeepStream image download and verify PipeGen startup on supported hardware.
+2. Build and run a minimal video pipeline before adding analytics.
+3. Connect a real video source and validate event logic.
+4. Verify privacy processing on actual frames.
+5. Test MQTT delivery against a broker, without connecting to real machinery during development.
+6. Measure latency, throughput, power, and accuracy with reproducible commands and publish the test environment/results.
+
+---
+
+*Built as a hackathon prototype. Any future deployment involving worker safety or machinery must undergo proper validation, fail-safe design, and safety review.*
