@@ -28,6 +28,17 @@
 - **Institution:** PES University, Bengaluru
 - **Project:** AegisVision — Privacy-Conscious Industrial Safety Monitoring
 
+### Team skills & focus areas
+
+| Team member | Skills / focus area |
+|---|---|
+| **Namita Maruti Sherakhane** | Python, Streamlit dashboard development, scenario-based UI, project integration, and demo/documentation coordination |
+| **Naguru Kethan Kumar Reddy** | Python development, perception-pipeline research, and integration planning for the proposed PipeGen/DeepStream workflow |
+| **Kuntimaddi Joshika** | Industrial safety use-case research, hazard/fall scenario design, and event-flow requirements |
+| **Manya Agarwal** | UI/UX review, dashboard presentation, documentation, and buildathon demo preparation |
+
+*These are project-aligned focus areas for the team, not claims of independently verified expertise. The current repository implements a scenario-based dashboard prototype; live perception, PipeGen/DeepStream execution, MQTT delivery, and privacy processing remain unverified.*
+
 ## ✨ What is AegisVision?
 
 Factories use cameras to observe busy work areas, but a camera feed alone does not turn a potential hazard into a structured, actionable event. AegisVision explores a possible edge-AI workflow for:
