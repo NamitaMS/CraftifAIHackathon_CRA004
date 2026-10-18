@@ -130,3 +130,34 @@ During PipeGen startup, the download of `craftifaidocker/deepstream:7.1-amd64-v3
 ---
 
 *Built as a hackathon prototype. Any future deployment involving worker safety or machinery must undergo proper validation, fail-safe design, and safety review.*
+
+## 🎬 60-second judge walkthrough
+
+1. **Start with the problem:** busy industrial zones need clear, reviewable safety signals—not just another camera feed.
+2. **Show Scenario 1:** establish the normal-operation baseline.
+3. **Switch to Scenario 2:** explain how a configured zone-boundary event could be surfaced to an operator.
+4. **Switch to Scenario 3:** explain the illustrative posture-duration threshold and the need for a human/site-approved response.
+5. **Show the event log and JSON preview:** point out how a future integration could carry a track identifier, zone, event label, timestamp/frame example, and proposed action in a structured format.
+6. **Close with privacy and validation:** explain that edge processing and redaction are design goals; live inference and redaction are not yet verified in this prototype.
+
+**Demo narration:** “AegisVision explores how an edge-AI safety pipeline could turn video analytics into structured, reviewable events. This dashboard lets us walk through normal operation, restricted-zone entry, and a fall-event example. The event table and JSON payload are simulated to demonstrate the operator experience and an integration contract. Our next validation milestone is to run the DeepStream pipeline end-to-end, measure it reproducibly, and verify privacy processing and broker delivery before making any real-world safety claims.”
+
+## 🧭 Design principles
+
+- **Human review first:** alerts are intended to support trained operators, not replace site safety procedures.
+- **Privacy by design:** local processing and redaction are planned design goals; they are not claimed as implemented.
+- **Fail honestly:** unavailable integrations are labelled as unverified rather than represented as live.
+- **No unsafe actuation:** example actions are display-only; this demo does not connect to or control machinery.
+- **Reproducibility:** performance numbers should only be promoted to measured results when test hardware, model, configuration, and benchmark output are recorded.
+
+## 🗺️ Validation roadmap
+
+| Milestone | Evidence required |
+|---|---|
+| 1. Runtime | DeepStream/PipeGen container starts successfully on supported hardware |
+| 2. Video path | A sample video passes through the pipeline and produces inspectable output |
+| 3. Event logic | Documented zone and posture-duration rules are tested against labelled examples |
+| 4. Privacy | Redaction is visually checked on representative frames before storage/export |
+| 5. Messaging | A test MQTT broker receives a sample event; no machinery endpoint is involved |
+| 6. Benchmark | Repeatable latency/FPS/power measurements with environment and configuration recorded |
+
