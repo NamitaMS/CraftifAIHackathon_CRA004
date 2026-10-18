@@ -1,6 +1,6 @@
 ## Implementation Status
 
-AegisVision is a prototype for privacy-conscious industrial worker safety monitoring using computer vision.
+AegisVision is a prototype for privacy-conscious industrial worker safety monitoring using computer vision..
 
 **Current status:** The Streamlit dashboard includes simulated incident data. Live camera inference, end-to-end PipeGen execution, measured performance benchmarks, and MQTT-based machinery alerts should be considered unverified until demonstrated in a working environment.
 
