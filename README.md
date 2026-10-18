@@ -18,6 +18,16 @@
 
 ---
 
+## 👥 Team & submission details
+
+- **Team name:** sync4ce
+- **Team members:** Namita Maruti Sherakhane, Naguru Kethan Kumar Reddy, Kuntimaddi Joshika, and Manya Agarwal
+- **Event:** CraftifAI Physical AI Buildathon — HackWithBangalore 4.0
+- **Track:** Track A — PipeGen (v0.5.1) / Perception
+- **Participant ID:** CRA004
+- **Institution:** PES University, Bengaluru
+- **Project:** AegisVision — Privacy-Conscious Industrial Safety Monitoring
+
 ## ✨ What is AegisVision?
 
 Factories use cameras to observe busy work areas, but a camera feed alone does not turn a potential hazard into a structured, actionable event. AegisVision explores a possible edge-AI workflow for:
