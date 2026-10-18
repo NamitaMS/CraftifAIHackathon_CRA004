@@ -1,3 +1,11 @@
+## Implementation Status
+
+AegisVision is a prototype for privacy-conscious industrial worker safety monitoring using computer vision.
+
+**Current status:** The Streamlit dashboard includes simulated incident data. Live camera inference, end-to-end PipeGen execution, measured performance benchmarks, and MQTT-based machinery alerts should be considered unverified until demonstrated in a working environment.
+
+This repository documents the intended pipeline and supporting configuration. See the project files and evidence report for implementation details. Performance figures are reported claims, not independently verified benchmark results.
+
 # AegisVision: Physical AI Industrial Safety, Fall Posture & Privacy-Preserving Edge Sentinel
 
 🌐 **Live HTML Dashboard (Cloudflare Pages):** [[https://aegisvision.pages.dev](https://aegisvisions.pages.dev/)](https://aegisvision.pages.dev)  
