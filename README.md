@@ -37,9 +37,10 @@ The dashboard is built with Streamlit and includes:
 - A sample event log clearly labelled as simulated
 - Example alert payload for integration planning
 - A pipeline topology sketch
-- A performance table that preserves the reported figures but labels them unverified
+- A performance table that preserves the figures shown in the demo while explicitly labelling them unverified
 
-**Live demo:** The previously configured Pages URL was not serving the dashboard when checked. Run the app locally using the instructions below rather than relying on that URL.
+**Live dashboard:** https://craftifaihackathoncra004-9uappcdkxn9sqebz7mkukyg.streamlit.app/  
+**Prototype walkthrough:** The 89-second demo video is intended to be supplied as the video URL in the submission form. Upload it to an accessible host (for example, YouTube as Unlisted or Google Drive with link access) and paste that share link into the form. The video demonstrates the dashboard scenarios and displayed interface; it should not be interpreted as independent proof of a live PipeGen/DeepStream inference run unless that execution is visibly shown and reproducible.
 
 ## 🧱 Intended architecture
 
@@ -94,13 +95,13 @@ Open the local URL Streamlit prints (usually `http://localhost:8501`).
 | Pipeline topology sketch | Documentation/demo only |
 | Live camera input and inference | Not verified |
 | PipeGen-generated pipeline execution | Not verified |
-| TensorRT FP32/FP16/INT8 benchmarking | Figures shown are reported claims; not independently verified |
+| FPS/latency values shown in the demo | Visible in the UI/video; measurement method and live pipeline origin not verified |\n| TensorRT FP32/FP16/INT8 benchmarking | Figures shown are not independently verified as reproducible benchmarks |
 | MQTT broker delivery or machinery control | Not connected / not verified |
 | Privacy redaction on real frames | Not verified |
 
 ## 📊 Performance claims
 
-The UI includes reported figures for model latency, FPS, GPU power, and accuracy as an illustration of the intended optimization comparison. These figures have **not been independently reproduced** in the current environment and must not be interpreted as measured results from this repository.
+The demo UI visibly displays figures including 142.8 FPS and 3.40 ms/frame. The video confirms that these numbers appear in the interface, but does not by itself establish the measurement method, hardware/configuration, or that they came from a live end-to-end PipeGen/DeepStream run. Treat them as **unverified displayed figures**, not validated benchmark results.
 
 ## 🛠️ Current limitation
 
