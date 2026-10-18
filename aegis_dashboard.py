@@ -102,7 +102,7 @@ with left_col:
         "primary_engine": "yolov8n_person_b1_gpu0_int8.engine",
         "secondary_engine": "yolov8n_pose_b1_gpu0_int8.engine",
         "frame_id": active_inc["Frame"],
-        "inference_latency_ms": 3.4,
+        "inference_latency_ms": None, "benchmark_status": "unverified",
         "worker_track_id": active_inc["Track_ID"],
         "roi_zone": active_inc["Zone"],
         "posture_state": active_inc["Posture"],
